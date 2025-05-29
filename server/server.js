@@ -12,14 +12,12 @@ app.use(cors());
 app.use(express.json());
 
 // Football API configuration
-const API_KEY =
-  process.env.FOOTBALL_API_KEY || "249953e90ed047c692040d71c7304ac2";
+const API_KEY = "249953e90ed047c692040d71c7304ac2";
 const API_HOST = "api.football-data.org";
 
 // Proxy endpoint to fetch matches
 app.get("/api/matches", async (req, res) => {
   try {
-    // You can use any football API here - this example uses football-data.org
     const response = await axios.get(`https://${API_HOST}/v4/matches`, {
       headers: {
         "X-Auth-Token": API_KEY,
